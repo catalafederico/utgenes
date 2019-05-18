@@ -14,7 +14,7 @@ public class Main {
 		
 		Individuo cromosoma = acertijoElfos.ejecutar();
 		
-		Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).severe("Individuo final: " + cromosoma.toString());
+		Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).info("Individuo final: " + cromosoma.toString());
 		
 	}
 

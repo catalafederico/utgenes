@@ -340,7 +340,7 @@ public class Cromosoma extends Individuo {
 				this.aptitud -= 10;
 			}
 			
-		} else if(this.indicePor("Trabajo", "Pintor") == 5){
+		} else if(this.indicePor("Nombre", "Stump") == 5){
 			
 			//Stump es el último
 			if(this.elfos.get(4).getColorDeZuecos() == "Rojos"){
