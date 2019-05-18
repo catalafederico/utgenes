@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 import main.java.ar.edu.utn.frba.ia.ag.Individuo;
 
 public class Cromosoma extends Individuo {
-	private ArrayList<Elfo> elfos;
+	private ArrayList<Elfo> elfos = new ArrayList<Elfo>();
 	private int aptitud = 0;
 	private ArrayList<String> nombres = new ArrayList<String>();
 	//private ArrayList<String> departamentos = new ArrayList<String>();
