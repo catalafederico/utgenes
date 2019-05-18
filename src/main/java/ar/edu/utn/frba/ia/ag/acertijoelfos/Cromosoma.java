@@ -6,6 +6,75 @@ import java.util.logging.Logger;
 import main.java.ar.edu.utn.frba.ia.ag.Individuo;
 
 public class Cromosoma extends Individuo {
+	public ArrayList<Elfo> getElfos() {
+		return elfos;
+	}
+
+
+	public void setElfos(ArrayList<Elfo> elfos) {
+		this.elfos = elfos;
+	}
+
+
+	public int getAptitud() {
+		return aptitud;
+	}
+
+
+	public void setAptitud(int aptitud) {
+		this.aptitud = aptitud;
+	}
+
+
+	public ArrayList<String> getNombres() {
+		return nombres;
+	}
+
+
+	public void setNombres(ArrayList<String> nombres) {
+		this.nombres = nombres;
+	}
+
+
+	public ArrayList<String> getColoresDePelo() {
+		return coloresDePelo;
+	}
+
+
+	public void setColoresDePelo(ArrayList<String> coloresDePelo) {
+		this.coloresDePelo = coloresDePelo;
+	}
+
+
+	public ArrayList<String> getColoresDeZuecos() {
+		return coloresDeZuecos;
+	}
+
+
+	public void setColoresDeZuecos(ArrayList<String> coloresDeZuecos) {
+		this.coloresDeZuecos = coloresDeZuecos;
+	}
+
+
+	public ArrayList<String> getTrabajos() {
+		return trabajos;
+	}
+
+
+	public void setTrabajos(ArrayList<String> trabajos) {
+		this.trabajos = trabajos;
+	}
+
+
+	public ArrayList<String> getMascotas() {
+		return mascotas;
+	}
+
+
+	public void setMascotas(ArrayList<String> mascotas) {
+		this.mascotas = mascotas;
+	}
+
 	private ArrayList<Elfo> elfos = new ArrayList<Elfo>();
 	private int aptitud = 0;
 	private ArrayList<String> nombres = new ArrayList<String>();
