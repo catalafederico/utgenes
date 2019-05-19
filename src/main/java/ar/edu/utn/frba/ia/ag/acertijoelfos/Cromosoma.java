@@ -15,17 +15,6 @@ public class Cromosoma extends Individuo {
 		this.elfos = elfos;
 	}
 
-
-	public int getAptitud() {
-		return aptitud;
-	}
-
-
-	public void setAptitud(int aptitud) {
-		this.aptitud = aptitud;
-	}
-
-
 	public ArrayList<String> getNombres() {
 		return nombres;
 	}
@@ -76,7 +65,6 @@ public class Cromosoma extends Individuo {
 	}
 
 	private ArrayList<Elfo> elfos = new ArrayList<Elfo>();
-	private int aptitud = 0;
 	private ArrayList<String> nombres = new ArrayList<String>();
 	//private ArrayList<String> departamentos = new ArrayList<String>();
 	private ArrayList<String> coloresDePelo = new ArrayList<String>();
@@ -254,7 +242,7 @@ public class Cromosoma extends Individuo {
 	
 	@Override
 	public double aptitud() {
-		/*
+		int aptitud = 0;/*
 	•	Sniff tiene zuecos rojos. Hecho.
 	•	Prop tiene gansos por mascotas. Hecho.
 	•	Poddy es el que empaqueta los regalos. Hecho.
@@ -276,23 +264,23 @@ public class Cromosoma extends Individuo {
 		
 		//Sniff tiene zuecos rojos
 		if(this.elfos.get(this.indicePor("Nombre", "Sniff")).getColorDeZuecos() == "Rojos"){
-			this.aptitud += 10;
+			aptitud += 2;
 		}else{
-			this.aptitud -= 10;
+			aptitud -= 2;
 		}
 		
 		//Prop tiene gansos por mascotas
 		if(this.elfos.get(this.indicePor("Nombre", "Prop")).getMascota() == "Gansos"){
-			this.aptitud += 10;
+			aptitud += 2;
 		}else{
-			this.aptitud -= 10;
+			aptitud -= 2;
 		}
 		
 		//Poddy es el que empaqueta los regalos
 		if(this.elfos.get(this.indicePor("Nombre", "Poddy")).getTrabajo() == "Empaquetador"){
-			this.aptitud += 10;
+			aptitud += 2;
 		}else{
-			this.aptitud -= 10;
+			aptitud -= 2;
 		}
 		
 		//El pintor y Poddy no son vecinos
@@ -302,28 +290,28 @@ public class Cromosoma extends Individuo {
 			
 			//El pintor es el primero
 			if(this.elfos.get(1).getNombre() != "Poddy"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.indicePor("Trabajo", "Pintor") == 5){
 			
 			//El pintor es el último
 			if(this.elfos.get(4).getNombre() != "Poddy"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.elfos.get(this.indicePor("Trabajo", "Pintor")+1).getNombre() != "Poddy" && this.elfos.get(this.indicePor("Trabajo", "Pintor")-1).getNombre() != "Poddy"){
 			
 			//El pintor está en el medio
-			this.aptitud += 10;
+			aptitud += 2;
 		
 		} else {
 			
-			this.aptitud -= 10;
+			aptitud -= 2;
 			
 		}
 		
@@ -335,53 +323,53 @@ public class Cromosoma extends Individuo {
 			
 			//Stump es el primero
 			if(this.elfos.get(1).getColorDeZuecos() == "Rojos"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.indicePor("Nombre", "Stump") == 5){
 			
 			//Stump es el último
 			if(this.elfos.get(4).getColorDeZuecos() == "Rojos"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.elfos.get(this.indicePor("Nombre", "Stump")+1).getColorDeZuecos() == "Rojos" || this.elfos.get(this.indicePor("Nombre", "Stump")-1).getColorDeZuecos() == "Rojos"){
 			
 			//Stump está en el medio
-			this.aptitud += 10;
+			aptitud += 2;
 		
 		} else {
 			
-			this.aptitud -= 10;
+			aptitud -= 2;
 			
 		}
 		
 		//El elfo de pelo castaño cuida de los renos de Sta. Claus
 		if(this.elfos.get(this.indicePor("ColorDePelo", "Castaño")).getTrabajo() == "Cuidador"){
-			this.aptitud += 10;
+			aptitud += 2;
 		}else{
-			this.aptitud -= 10;
+			aptitud -= 2;
 		}
 		
 		//Puk tiene el pelo gris
 		if(this.elfos.get(this.indicePor("Nombre", "Puk")).getColorDePelo() == "Gris"){
-			this.aptitud += 10;
+			aptitud += 2;
 		}else{
-			this.aptitud -= 10;
+			aptitud -= 2;
 		}
 		
 		//El elfo de pelo gris vive entre el Sniff y el dueño de un ganso
 		//Me fijo si el de color de pelo gris está primero o último, no se podría cumplir la condicion de ser así
 		if(this.indicePor("ColorDePelo", "Gris") == 0 || this.indicePor("ColorDePelo", "Gris") == 5){
-			this.aptitud -= 10;
+			aptitud -= 2;
 		} else if((this.elfos.get(this.indicePor("ColorDePelo", "Gris")-1).getNombre() == "Sniff" && this.elfos.get(this.indicePor("ColorDePelo", "Gris")+1).getMascota() == "Gansos") || (this.elfos.get(this.indicePor("ColorDePelo", "Gris")-1).getMascota() == "Gansos" && this.elfos.get(this.indicePor("ColorDePelo", "Gris")+1).getNombre() == "Sniff")){
-			this.aptitud += 10;
+			aptitud += 2;
 		}else{
-			this.aptitud -= 10;
+			aptitud -= 2;
 		}
 		
 		//El de zuecos rojos es vecino de Stump
@@ -391,28 +379,28 @@ public class Cromosoma extends Individuo {
 			
 			//El de zuecos rojos es el primero
 			if(this.elfos.get(1).getNombre() == "Stump"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.indicePor("ColorDeZuecos", "Rojos") == 5){
 			
 			//El de zuecos rojos es el último
 			if(this.elfos.get(4).getNombre() == "Stump"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.elfos.get(this.indicePor("ColorDeZuecos", "Rojos")+1).getNombre() == "Stump" || this.elfos.get(this.indicePor("ColorDeZuecos", "Rojos")-1).getNombre() == "Stump"){
 			
 			//El de zuecos rojos está en el medio
-			this.aptitud += 10;
+			aptitud += 2;
 		
 		} else {
 			
-			this.aptitud -= 10;
+			aptitud -= 2;
 			
 		}
 		
@@ -423,28 +411,28 @@ public class Cromosoma extends Individuo {
 			
 			//El de zuecos negros es el primero
 			if(this.elfos.get(1).getColorDePelo() == "Negro"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.indicePor("ColorDeZuecos", "Negros") == 5){
 			
 			//El de zuecos negros es el último
 			if(this.elfos.get(4).getColorDePelo() == "Negro"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.elfos.get(this.indicePor("ColorDeZuecos", "Negros")+1).getColorDePelo() == "Negro" || this.elfos.get(this.indicePor("ColorDeZuecos", "Negros")-1).getColorDePelo() == "Negro"){
 			
 			//El de zuecos negros está en el medio
-			this.aptitud += 10;
+			aptitud += 2;
 		
 		} else {
 			
-			this.aptitud -= 10;
+			aptitud -= 2;
 			
 		}
 		
@@ -455,28 +443,28 @@ public class Cromosoma extends Individuo {
 			
 			//El panadero es el primero
 			if(this.elfos.get(1).getMascota() == "Cerdos"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.indicePor("Trabajo", "Panadero") == 5){
 			
 			//El panadero es el último
 			if(this.elfos.get(4).getMascota() == "Cerdos"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.elfos.get(this.indicePor("Trabajo", "Panadero")+1).getMascota() == "Cerdos" || this.elfos.get(this.indicePor("Trabajo", "Panadero")-1).getMascota() == "Cerdos"){
 			
 			//El panadero está en el medio
-			this.aptitud += 10;
+			aptitud += 2;
 		
 		} else {
 			
-			this.aptitud -= 10;
+			aptitud -= 2;
 			
 		}
 		
@@ -487,28 +475,28 @@ public class Cromosoma extends Individuo {
 			
 			//El pelirrojo es el primero
 			if(this.elfos.get(1).getColorDeZuecos() == "Verdes"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.indicePor("ColorDePelo", "Pelirrojo") == 5){
 			
 			//El pelirrojo es el último
 			if(this.elfos.get(4).getColorDeZuecos() == "Verdes"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.elfos.get(this.indicePor("ColorDePelo", "Pelirrojo")+1).getColorDeZuecos() == "Verdes" || this.elfos.get(this.indicePor("ColorDePelo", "Pelirrojo")-1).getColorDeZuecos() == "Verdes"){
 			
 			//El pelirrojo está en el medio
-			this.aptitud += 10;
+			aptitud += 2;
 		
 		} else {
 			
-			this.aptitud -= 10;
+			aptitud -= 2;
 			
 		}
 		
@@ -519,28 +507,28 @@ public class Cromosoma extends Individuo {
 			
 			//El dueño de los gansos es el primero
 			if(this.elfos.get(1).getColorDePelo() == "Negro"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.indicePor("Mascota", "Gansos") == 5){
 			
 			//El dueño de los gansos es el último
 			if(this.elfos.get(4).getColorDePelo() == "Negro"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.elfos.get(this.indicePor("Mascota", "Gansos")+1).getColorDePelo() == "Negro" || this.elfos.get(this.indicePor("Mascota", "Gansos")-1).getColorDePelo() == "Negro"){
 			
 			//El dueño de los gansos está en el medio
-			this.aptitud += 10;
+			aptitud += 2;
 		
 		} else {
 			
-			this.aptitud -= 10;
+			aptitud -= 2;
 			
 		}
 		
@@ -551,39 +539,39 @@ public class Cromosoma extends Individuo {
 			
 			//El dueño del pato es el primero
 			if(this.elfos.get(1).getColorDeZuecos() == "Blancos"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.indicePor("Mascota", "Pato") == 5){
 			
 			//El dueño del pato es el último
 			if(this.elfos.get(4).getColorDeZuecos() == "Blancos"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.elfos.get(this.indicePor("Mascota", "Pato")+1).getColorDeZuecos() == "Blancos" || this.elfos.get(this.indicePor("Mascota", "Pato")-1).getColorDeZuecos() == "Blancos"){
 			
 			//El dueño del pato está en el medio
-			this.aptitud += 10;
+			aptitud += 2;
 		
 		} else {
 			
-			this.aptitud -= 10;
+			aptitud -= 2;
 			
 		}
 		
 		//El de zuecos blancos es vecino del elfo de pelo cano y del de los zuecos rojos.
 		//Me fijo si el de color de zuecos blancos no está primero o último, no se podría cumplir la condicion de ser así
 		if(this.indicePor("ColorDeZuecos", "Blancos") == 0 || this.indicePor("ColorDeZuecos", "Blancos") == 5){
-			this.aptitud -= 10;
+			aptitud -= 2;
 		} else if((this.elfos.get(this.indicePor("ColorDeZuecos", "Blancos")-1).getColorDePelo() == "Cano" && this.elfos.get(this.indicePor("ColorDeZuecos", "Blancos")+1).getColorDeZuecos() == "Rojos") || (this.elfos.get(this.indicePor("ColorDeZuecos", "Blancos")-1).getColorDeZuecos() == "Rojos" && this.elfos.get(this.indicePor("ColorDeZuecos", "Blancos")+1).getColorDePelo() == "Cano")){
-			this.aptitud += 10;
+			aptitud += 2;
 		}else{
-			this.aptitud -= 10;
+			aptitud -= 2;
 		}
 		
 		//El de zuecos blancos no es vecino del dueño del gato
@@ -593,28 +581,28 @@ public class Cromosoma extends Individuo {
 			
 			//El de zuecos blancos es el primero
 			if(this.elfos.get(1).getMascota() != "Gato"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.indicePor("ColorDeZuecos", "Blancos") == 5){
 			
 			//El de zuecos blancos es el último
 			if(this.elfos.get(4).getMascota() != "Gato"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.elfos.get(this.indicePor("ColorDeZuecos", "Blancos")+1).getMascota() != "Gato" && this.elfos.get(this.indicePor("ColorDeZuecos", "Blancos")-1).getMascota() != "Gato"){
 			
 			//El de zuecos blancos está en el medio
-			this.aptitud += 10;
+			aptitud += 2;
 		
 		} else {
 			
-			this.aptitud -= 10;
+			aptitud -= 2;
 			
 		}
 		
@@ -625,35 +613,31 @@ public class Cromosoma extends Individuo {
 			
 			//El dueño del gato es el primero
 			if(this.elfos.get(1).getTrabajo() == "Carpintero"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.indicePor("Mascota", "Gato") == 5){
 			
 			//El dueño del gato es el último
 			if(this.elfos.get(4).getTrabajo() == "Carpintero"){
-				this.aptitud += 10;
+				aptitud += 2;
 			} else {
-				this.aptitud -= 10;
+				aptitud -= 2;
 			}
 			
 		} else if(this.elfos.get(this.indicePor("Mascota", "Gato")+1).getTrabajo() == "Carpintero" || this.elfos.get(this.indicePor("Mascota", "Gato")-1).getTrabajo() == "Carpintero"){
 			
 			//El dueño del gato está en el medio
-			this.aptitud += 10;
+			aptitud += 2;
 		
 		} else {
 			
-			this.aptitud -= 10;
+			aptitud -= 2;
 			
 		}
 		
-		return this.aptitud;
+		return aptitud;
 	}
-	
-	
-	
-
 }
