@@ -85,12 +85,12 @@ public class Cromosoma extends Individuo {
 		while(!nombres.isEmpty()){
 		
 			Elfo elfo = new Elfo();
-			String nombre = nombres.get((int)Math.random()*nombres.size());
+			String nombre = nombres.get((int)(Math.random()*nombres.size()));
 			//String departamento = departamentos.get((int)Math.random()*departamentos.size());
-			String colorDePelo = coloresDePelo.get((int)Math.random()*coloresDePelo.size());
-			String colorDeZuecos = coloresDeZuecos.get((int)Math.random()*coloresDeZuecos.size());
-			String trabajo = trabajos.get((int)Math.random()*trabajos.size());
-			String mascota = mascotas.get((int)Math.random()*mascotas.size());
+			String colorDePelo = coloresDePelo.get((int)(Math.random()*coloresDePelo.size()));
+			String colorDeZuecos = coloresDeZuecos.get((int)(Math.random()*coloresDeZuecos.size()));
+			String trabajo = trabajos.get((int)(Math.random()*trabajos.size()));
+			String mascota = mascotas.get((int)(Math.random()*mascotas.size()));
 			
 			elfo.setNombre(nombre);
 			//elfo.setDepartamento(departamento);
