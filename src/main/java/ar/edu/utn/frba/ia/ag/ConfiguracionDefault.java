@@ -1,5 +1,6 @@
 package main.java.ar.edu.utn.frba.ia.ag;
 
+import main.java.ar.edu.utn.frba.ia.ag.cruzamiento.BinomialAzar;
 import main.java.ar.edu.utn.frba.ia.ag.cruzamiento.Simple;
 import main.java.ar.edu.utn.frba.ia.ag.mutacion.MutacionSimple;
 import main.java.ar.edu.utn.frba.ia.ag.paro.CantidadDeCiclos;
@@ -12,8 +13,8 @@ public class ConfiguracionDefault extends Configuracion {
 		super(new CantidadDeCiclos(99L), // criterio de paro
 				999, // cantIndividuosIniciales
 				new Torneo(), // seleccion
-				new Simple(), // cruzamiento
-				new MutacionSimple(0.2)); // mutacion
+				new BinomialAzar(), // cruzamiento
+				new MutacionSimple(0.6)); // mutacion
 	}
 
 // Criterio de Paro
