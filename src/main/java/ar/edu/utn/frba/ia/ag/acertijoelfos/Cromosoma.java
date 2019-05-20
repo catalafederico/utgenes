@@ -85,6 +85,7 @@ public class Cromosoma extends Individuo {
 		while(!nombres.isEmpty()){
 		
 			Elfo elfo = new Elfo();
+			int prueba1 = (int)(Math.random()*nombres.size());
 			String nombre = nombres.get((int)(Math.random()*nombres.size()));
 			//String departamento = departamentos.get((int)Math.random()*departamentos.size());
 			String colorDePelo = coloresDePelo.get((int)(Math.random()*coloresDePelo.size()));
@@ -295,10 +296,10 @@ public class Cromosoma extends Individuo {
 				aptitud -=10;
 			}
 			
-		} else if(this.indicePor("Trabajo", "Pintor") == 5){
+		} else if(this.indicePor("Trabajo", "Pintor") == 4){
 			
 			//El pintor es el último
-			if(this.elfos.get(4).getNombre() != "Poddy"){
+			if(this.elfos.get(3).getNombre() != "Poddy"){
 				aptitud +=10;
 			} else {
 				aptitud -=10;
@@ -328,10 +329,10 @@ public class Cromosoma extends Individuo {
 				aptitud -=10;
 			}
 			
-		} else if(this.indicePor("Nombre", "Stump") == 5){
+		} else if(this.indicePor("Nombre", "Stump") == 4){
 			
 			//Stump es el último
-			if(this.elfos.get(4).getColorDeZuecos() == "Rojos"){
+			if(this.elfos.get(3).getColorDeZuecos() == "Rojos"){
 				aptitud +=10;
 			} else {
 				aptitud -=10;
@@ -364,7 +365,7 @@ public class Cromosoma extends Individuo {
 		
 		//El elfo de pelo gris vive entre el Sniff y el dueño de un ganso
 		//Me fijo si el de color de pelo gris está primero o último, no se podría cumplir la condicion de ser así
-		if(this.indicePor("ColorDePelo", "Gris") == 0 || this.indicePor("ColorDePelo", "Gris") == 5){
+		if(this.indicePor("ColorDePelo", "Gris") == 0 || this.indicePor("ColorDePelo", "Gris") == 4){
 			aptitud -=10;
 		} else if((this.elfos.get(this.indicePor("ColorDePelo", "Gris")-1).getNombre() == "Sniff" && this.elfos.get(this.indicePor("ColorDePelo", "Gris")+1).getMascota() == "Gansos") || (this.elfos.get(this.indicePor("ColorDePelo", "Gris")-1).getMascota() == "Gansos" && this.elfos.get(this.indicePor("ColorDePelo", "Gris")+1).getNombre() == "Sniff")){
 			aptitud +=10;
@@ -384,10 +385,10 @@ public class Cromosoma extends Individuo {
 				aptitud -=10;
 			}
 			
-		} else if(this.indicePor("ColorDeZuecos", "Rojos") == 5){
+		} else if(this.indicePor("ColorDeZuecos", "Rojos") == 4){
 			
 			//El de zuecos rojos es el último
-			if(this.elfos.get(4).getNombre() == "Stump"){
+			if(this.elfos.get(3).getNombre() == "Stump"){
 				aptitud +=10;
 			} else {
 				aptitud -=10;
@@ -416,10 +417,10 @@ public class Cromosoma extends Individuo {
 				aptitud -=10;
 			}
 			
-		} else if(this.indicePor("ColorDeZuecos", "Negros") == 5){
+		} else if(this.indicePor("ColorDeZuecos", "Negros") == 4){
 			
 			//El de zuecos negros es el último
-			if(this.elfos.get(4).getColorDePelo() == "Negro"){
+			if(this.elfos.get(3).getColorDePelo() == "Negro"){
 				aptitud +=10;
 			} else {
 				aptitud -=10;
@@ -448,10 +449,10 @@ public class Cromosoma extends Individuo {
 				aptitud -=10;
 			}
 			
-		} else if(this.indicePor("Trabajo", "Panadero") == 5){
+		} else if(this.indicePor("Trabajo", "Panadero") == 4){
 			
 			//El panadero es el último
-			if(this.elfos.get(4).getMascota() == "Cerdos"){
+			if(this.elfos.get(3).getMascota() == "Cerdos"){
 				aptitud +=10;
 			} else {
 				aptitud -=10;
@@ -480,10 +481,10 @@ public class Cromosoma extends Individuo {
 				aptitud -=10;
 			}
 			
-		} else if(this.indicePor("ColorDePelo", "Pelirrojo") == 5){
+		} else if(this.indicePor("ColorDePelo", "Pelirrojo") == 4){
 			
 			//El pelirrojo es el último
-			if(this.elfos.get(4).getColorDeZuecos() == "Verdes"){
+			if(this.elfos.get(3).getColorDeZuecos() == "Verdes"){
 				aptitud +=10;
 			} else {
 				aptitud -=10;
@@ -512,10 +513,10 @@ public class Cromosoma extends Individuo {
 				aptitud -=10;
 			}
 			
-		} else if(this.indicePor("Mascota", "Gansos") == 5){
+		} else if(this.indicePor("Mascota", "Gansos") == 4){
 			
 			//El dueño de los gansos es el último
-			if(this.elfos.get(4).getColorDePelo() == "Negro"){
+			if(this.elfos.get(3).getColorDePelo() == "Negro"){
 				aptitud +=10;
 			} else {
 				aptitud -=10;
@@ -544,10 +545,10 @@ public class Cromosoma extends Individuo {
 				aptitud -=10;
 			}
 			
-		} else if(this.indicePor("Mascota", "Pato") == 5){
+		} else if(this.indicePor("Mascota", "Pato") == 4){
 			
 			//El dueño del pato es el último
-			if(this.elfos.get(4).getColorDeZuecos() == "Blancos"){
+			if(this.elfos.get(3).getColorDeZuecos() == "Blancos"){
 				aptitud +=10;
 			} else {
 				aptitud -=10;
@@ -566,7 +567,7 @@ public class Cromosoma extends Individuo {
 		
 		//El de zuecos blancos es vecino del elfo de pelo cano y del de los zuecos rojos.
 		//Me fijo si el de color de zuecos blancos no está primero o último, no se podría cumplir la condicion de ser así
-		if(this.indicePor("ColorDeZuecos", "Blancos") == 0 || this.indicePor("ColorDeZuecos", "Blancos") == 5){
+		if(this.indicePor("ColorDeZuecos", "Blancos") == 0 || this.indicePor("ColorDeZuecos", "Blancos") == 4){
 			aptitud -=10;
 		} else if((this.elfos.get(this.indicePor("ColorDeZuecos", "Blancos")-1).getColorDePelo() == "Cano" && this.elfos.get(this.indicePor("ColorDeZuecos", "Blancos")+1).getColorDeZuecos() == "Rojos") || (this.elfos.get(this.indicePor("ColorDeZuecos", "Blancos")-1).getColorDeZuecos() == "Rojos" && this.elfos.get(this.indicePor("ColorDeZuecos", "Blancos")+1).getColorDePelo() == "Cano")){
 			aptitud +=10;
@@ -586,10 +587,10 @@ public class Cromosoma extends Individuo {
 				aptitud -=10;
 			}
 			
-		} else if(this.indicePor("ColorDeZuecos", "Blancos") == 5){
+		} else if(this.indicePor("ColorDeZuecos", "Blancos") == 4){
 			
 			//El de zuecos blancos es el último
-			if(this.elfos.get(4).getMascota() != "Gato"){
+			if(this.elfos.get(3).getMascota() != "Gato"){
 				aptitud +=10;
 			} else {
 				aptitud -=10;
@@ -618,10 +619,10 @@ public class Cromosoma extends Individuo {
 				aptitud -=10;
 			}
 			
-		} else if(this.indicePor("Mascota", "Gato") == 5){
+		} else if(this.indicePor("Mascota", "Gato") == 4){
 			
 			//El dueño del gato es el último
-			if(this.elfos.get(4).getTrabajo() == "Carpintero"){
+			if(this.elfos.get(3).getTrabajo() == "Carpintero"){
 				aptitud +=10;
 			} else {
 				aptitud -=10;
